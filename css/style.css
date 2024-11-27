@@ -1,0 +1,259 @@
+:root {
+    --fuenteHeading : 'PT Sans', sans-serif;
+    --fuenteParrafos: 'Open Sans', sans-serif;
+
+    --primario: #784D3C;
+    --blanco: #ffffff;
+    --negro: #000000;
+    --gris: #e1e1e1e1;
+}
+
+html {
+    box-sizing: border-box; /* El Padding y Border No afecta al tamaño final del elemento*/
+    font-size: 62.5%; /* 1rem = 10px */
+}
+*,*:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    font-family: var(--fuenteParrafos);
+    font-size: 1.6rem;
+    line-height: 2;
+}
+
+/* Globales */
+
+.contenedor {
+    width: min(90%, 120rem); /* La pantalla agarra el tamaño mas pequeño que contiene la propiedad, es decir, que en celular agarra el 90% y en pantalla grande 120rem*/
+    margin: 0 auto; /* Centrar el contenedor */
+}
+a {
+    text-decoration: none;  /* Quitar decoracion de todos los enlaces */
+}
+h1,h2,h3,h4 {
+    font-family: var(--fuenteHeading);
+    line-height: 1.2;
+}
+h1 {
+    font-size: 4.8rem;
+}
+h2 {
+    font-size: 4rem;
+}
+h3 {
+    font-size: 3.2rem;
+}
+h4 {
+    font-size: 2.8rem;
+}
+img {
+    max-width: 100%;
+}
+
+/* Utilidades */
+
+.no-margin {
+    margin: 0;  /* quita el margen del elemento que tiene esta clase */
+}
+.no-padding {
+    padding: 0; /* quita el padding del elemento que tiene esta clase */
+}
+.centrar-texto {
+    text-align: center; /* centra el texto del elemento que tiene esta clase */
+}
+
+/* Header */
+.webp header {
+    background-image: url(../img/banner.webp);
+}
+
+.no-webp header {
+    background-image: url(../img/banner.jpg);
+}
+
+.header {
+    background-size: cover; /* toma el tamaño completo del espacio disponible*/
+    background-repeat: no-repeat;   /* Cundo toma el tamaño completo tiende a repetirse la imagen, esta propiedad lo evita */
+    background-position: center center; /* Se mantiene centrado aún y cuando la pántalla cambie de tamaño */
+    height: 60rem;  /* Altura de la imagen */
+}
+.barra {
+    padding-top: 1rem;
+}
+@media (min-width : 768px){
+    .barra {
+        display: flex;
+        justify-content: space-around;
+    }
+}
+.logo{
+    text-align: center; /* Centrar texto */
+}
+.logo-texto {
+    color: var(--blanco);
+    font-weight: 400;
+}
+.logo-texto span {
+    font-weight: 700;
+}
+.header__texto {
+    color: var(--blanco);
+    text-align: center; /* Centrar texto */
+    margin: 12rem;
+    
+}
+@media (min-width : 768px) {
+    .navegacion {
+        display: flex;
+        align-items: center;    /* Se centran los elementos de forma vertical*/
+        gap: 2rem;
+    }
+    
+}
+.navegacion__enlace {
+    display: block; /* Toma todo el espacio disponible que tiene, no deja que otro elemento se ponga junto a él*/
+    text-align: center; /* Centrar texto */
+    color: var(--blanco);
+}
+/* Contenido Principal */
+
+@media (min-width : 768px) { 
+    .contenido-principal {
+        display: grid;
+        grid-template-columns: 2fr 1fr; /* Colocamos en el elemento padre tenga una columna mas grande que la otra, serían dos en total*/
+        column-gap: 4rem;   /* Espacio entre las columnas (algo parecido a margin) */
+    }
+}
+
+.entrada {
+    border-bottom: 1px solid var(--gris);
+    margin-bottom: 2rem;
+}
+
+.entrada:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.boton {
+    display: block;
+    font-size: 1.8rem;
+    padding: 1rem 3rem;
+    text-align: center; /* Centrar texto */
+    font-family: var(--fuenteHeading);
+    font-weight: 700;
+    color: var(--blanco);
+    text-transform: uppercase;  /* Transofma todo el texto a mayúscula */
+    border: none;
+}
+@media (min-width : 768px) { 
+    .boton {
+        display: inline-block;  /* lo mejor de inline y block */
+        margin-bottom: 2rem;
+    }
+}
+.boton:hover {
+    cursor: pointer;
+}
+.boton--primario {
+    background-color: var(--negro);
+}
+.boton--secundario {
+    background-color: var(--primario);
+}
+.cursos {
+    list-style: none;
+}
+.widget-curso {
+    border-bottom: 1px solid var(--gris);
+    margin-bottom: 2rem;
+}
+.widget-curso:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.widget-curso__label,
+.curso__label {
+    font-family: var(--fuenteHeading);
+    font-weight: 700;
+}
+
+.widget-curso__info,
+.curso__info {
+    font-weight: normal;
+}
+
+.widget-curso__label,
+.curso__label {
+    font-size: 2rem;
+}
+
+/* footer */
+.footer {
+    background-color: var(--negro);
+    margin-top: 5rem;
+    padding-bottom: 2rem;
+}
+
+/* Sobre Nosotros */
+
+@media (min-width : 768px) {
+    .sobre-nosotros {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 3rem;
+    } 
+    
+}
+
+/* Cursos */
+.curso {
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--gris);
+}
+.curso:last-of-type {
+    border: none;
+}
+@media (min-width : 768px) { 
+    .curso {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        column-gap: 2rem;
+    }
+}
+
+/* Contacto */
+
+.contacto__bg {
+    background-image: url(../img/contacto.jpg); /* Añadimos la imgaen como background */
+    height: 40rem; /* Añadimos altura para que se logre ver la imgagen, de lo contrario es un div vacío*/
+    background-position: cover; /* Que tome todo el espacio disponible*/
+    background-repeat: no-repeat; /* Que no se repita mientras se ocupe todo el espacio*/
+}
+
+.formulario {
+    background-color: var(--blanco);
+    margin: -5rem auto 0 auto;
+    padding: 5rem;
+    width: 95%;
+}
+
+.campo {
+    display: flex;
+    margin-bottom: 2rem;
+    gap: 2rem;
+}
+
+.campo__label {
+    flex: 0 0 9rem;
+    text-align: right;
+}
+
+.campo__input {
+    flex: 1;
+    border: 1px solid var(--gris);
+}
+.campo__input--textarea {
+    height: 20rem;
+}
