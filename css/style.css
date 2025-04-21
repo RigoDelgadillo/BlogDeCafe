@@ -6,6 +6,11 @@
     --blanco: #ffffff;
     --negro: #000000;
     --gris: #e1e1e1e1;
+
+    --rojo: #ff1601 ;
+    --bgRojo: #ff00003b ;
+    --verde: #40da03 ;
+    --bgVerde: #35b90021 ;
 }
 
 html {
@@ -257,3 +262,54 @@ img {
 .campo__input--textarea {
     height: 20rem;
 }
+
+.mensaje {
+    display: flex;
+}
+.mensaje p{
+    padding: 0.5rem 4rem;
+    margin: 1rem auto;
+    border-radius: 1.5rem;
+}
+.error {
+    font-weight: bold;
+    color: var(--rojo);
+    border: 2px solid var(--rojo);
+    background-color: var(--bgRojo);
+}
+
+.exito {
+    font-weight: bold;
+    color: var(--verde);
+    border: 2px solid var(--verde);
+    background-color: var(--bgVerde);
+}
+
+/* CSS para Spinner */
+.loader {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-block;
+    border-top: 3px solid #48201c;
+    border-right: 3px solid transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    text-align: center;
+}
+
+@keyframes rotation {
+0% {
+    transform: rotate(0deg);
+}
+100% {
+    transform: rotate(360deg);
+}
+}  
+.spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4rem auto;
+}
+
