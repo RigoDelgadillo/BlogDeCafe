@@ -54,6 +54,10 @@ function mostrarMensaje(mensaje) {
     mensajeHTML.textContent = mensaje;
     eliminaMensajes(divMensaje);
     divMensaje.appendChild(mensajeHTML);
+
+    setTimeout((mensaje) => {
+        mensajeHTML.remove();
+    }, 3000);
 }
 
 function eliminaMensajes(divMensaje) {
@@ -62,10 +66,5 @@ function eliminaMensajes(divMensaje) {
             divMensaje.removeChild(divMensaje.firstChild);
         }
     }
-}
-
-function eliminaAlertas() {
-    if(divMensaje.firstChild)
-    divMensaje.removeChild(divMensaje.firstChild);
 }
 
