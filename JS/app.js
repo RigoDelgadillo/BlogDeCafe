@@ -4,6 +4,7 @@ const inputNombre = document.querySelector('#nombre');
 const inputEmail = document.querySelector('#email');
 const inputMensaje = document.querySelector('#mensaje');
 const btnEnviar = document.querySelector('#formulario input[type="submit"]');
+const divMensaje = document.querySelector('.mensaje');
 
 // Event Listening
 eventListeners();
@@ -28,13 +29,13 @@ function enviandoEmail(e) {
 // Funcion para validar si hay campos vacíos en el formulario
 function validar() {
     if( inputNombre.value.trim() === '' || inputEmail.value.trim() === '' || inputMensaje.value.trim() === '' ){
-        console.log('Todos los campos son obligatorios');
+        mostrarMensaje('Todos los campos son obligatorios');
         return;
     } else {
         if(validarEmail(inputEmail.value)){
-            console.log('Correcto')
+            eliminaMensajes(divMensaje)
         } else {
-            console.log('Email No Valido');
+            mostrarMensaje('Email no valido');
         }
     }
 }
@@ -44,5 +45,27 @@ function validarEmail(inputEmail) {
     // Expresión regular para validar un correo electrónico
     const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     return regex.test(inputEmail);
+}
+
+// Mostrar Mensaje en página web
+function mostrarMensaje(mensaje) {
+    const mensajeHTML = document.createElement('p');
+    mensajeHTML.classList.add('error');
+    mensajeHTML.textContent = mensaje;
+    eliminaMensajes(divMensaje);
+    divMensaje.appendChild(mensajeHTML);
+}
+
+function eliminaMensajes(divMensaje) {
+    if(divMensaje.firstChild) {
+        while(divMensaje.firstChild) {
+            divMensaje.removeChild(divMensaje.firstChild);
+        }
+    }
+}
+
+function eliminaAlertas() {
+    if(divMensaje.firstChild)
+    divMensaje.removeChild(divMensaje.firstChild);
 }
 
