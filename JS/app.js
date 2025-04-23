@@ -48,9 +48,10 @@ function enviandoEmail(e) {
                 emailEnviado.remove();
             }, 3000);
 
+            formulario.reset()
+            
         }, 3000);
     }
-    
 }
 
 // Funcion para validar si hay campos vacíos en el formulario
