@@ -7,15 +7,16 @@ const btnEnviar = document.querySelector('#formulario input[type="submit"]');
 const divMensaje = document.querySelector('.mensaje');
 
 // Event Listening
-eventListeners();
 
 function eventListeners () {
 
-    formulario.addEventListener('submit', enviandoEmail);
-    inputNombre.addEventListener('input', validar);
-    inputEmail.addEventListener('input', validar);
-    inputMensaje.addEventListener('input', validar);
-
+    document.addEventListener('DOMContentLoaded', () => {
+        formulario.addEventListener('submit', enviandoEmail);
+        inputNombre.addEventListener('input', validar);
+        inputEmail.addEventListener('input', validar);
+        inputMensaje.addEventListener('input', validar);
+    })
+    
 }
 // Funciones
 
@@ -49,7 +50,7 @@ function enviandoEmail(e) {
             }, 3000);
 
             formulario.reset()
-            
+
         }, 3000);
     }
 }
