@@ -7,6 +7,7 @@ const btnEnviar = document.querySelector('#formulario input[type="submit"]');
 const divMensaje = document.querySelector('.mensaje');
 
 // Event Listening
+eventListeners();
 
 function eventListeners () {
 
