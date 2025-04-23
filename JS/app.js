@@ -22,20 +22,49 @@ function eventListeners () {
 // Funcion para envíar formulario
 function enviandoEmail(e) {
     e.preventDefault();
+    if( validar() === true ){
+        const spinner = document.querySelector('.spinner-container');
+        spinner.removeAttribute('hidden');
+        const mensajeHTML = document.createElement('p');
+        mensajeHTML.classList.add('exito');
+        mensajeHTML.textContent = 'Enviando Email...';
+        divMensaje.appendChild(mensajeHTML);
 
-    console.log('Enviando Formulario...')
+        setTimeout(() => {
+
+            spinner.setAttribute('hidden','');
+            mensajeHTML.remove();
+            
+        }, 3000);
+        
+        setTimeout(() => {
+
+            const emailEnviado = document.createElement('p');
+            emailEnviado.classList.add('exito');
+            emailEnviado.textContent = 'Email Enviado';
+            divMensaje.appendChild(emailEnviado);
+
+            setTimeout(() => {
+                emailEnviado.remove();
+            }, 3000);
+
+        }, 3000);
+    }
+    
 }
 
 // Funcion para validar si hay campos vacíos en el formulario
 function validar() {
     if( inputNombre.value.trim() === '' || inputEmail.value.trim() === '' || inputMensaje.value.trim() === '' ){
         mostrarMensaje('Todos los campos son obligatorios');
-        return;
+        return false;
     } else {
         if(validarEmail(inputEmail.value)){
             eliminaMensajes(divMensaje)
+            return true;
         } else {
             mostrarMensaje('Email no valido');
+            return false;
         }
     }
 }
@@ -55,7 +84,7 @@ function mostrarMensaje(mensaje) {
     eliminaMensajes(divMensaje);
     divMensaje.appendChild(mensajeHTML);
 
-    setTimeout((mensaje) => {
+    setTimeout(() => {
         mensajeHTML.remove();
     }, 3000);
 }
